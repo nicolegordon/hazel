@@ -1,0 +1,19 @@
+.header {
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    background-color: #c6ecc6;
+    color: #fff;
+    display: flex;
+    padding: 0 16px;
+    height: 56px;
+    font: 500 24px/32px Roboto, "Helvetica Neue", sans-serif;
+  }
+  
+  .title {
+    color: black;
+  }
+  
+  .flexExpand {
+    flex: 1 0 auto;
+  }

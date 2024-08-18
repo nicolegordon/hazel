@@ -1,0 +1,9 @@
+<input type="file" class="file-input"
+    (change)="onFileSelected($event)"
+    #fileUpload>
+<div class="upload-btn-container">
+    <button mat-raised-button class="upload-btn" (click)="fileUpload.click()">
+        <mat-icon>upload_file</mat-icon>
+        Upload a document
+    </button>
+</div>
