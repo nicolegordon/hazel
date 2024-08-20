@@ -42,6 +42,8 @@ export class PdfViewerComponent {
       .subscribe((currentFile: any) => {
       this.currentFile = currentFile;
       this.textForm.get('text')?.setValue(this.currentFile.text);
+      this.findResults();
+      this.setCurrentFindResult(0);
     });
 
     this.textForm.get('text')?.valueChanges
