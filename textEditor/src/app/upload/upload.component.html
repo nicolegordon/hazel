@@ -1,6 +1,8 @@
 <input type="file" class="file-input"
-    (change)="onFileSelected($event)"
-    #fileUpload>
+    (change)="fileService.uploadFile($event)"
+    requiredFileType="pdf"
+    #fileUpload
+    multiple>
 <div class="upload-btn-container">
     <button mat-raised-button class="upload-btn" (click)="fileUpload.click()">
         <mat-icon>upload_file</mat-icon>

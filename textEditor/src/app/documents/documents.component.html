@@ -1,3 +1,9 @@
 <div class="container">
     <div class="header">Documents</div>
+
+        <div *ngFor="let file of fileService.files" class="document" (click)="fileService.openFile(file)">
+            <mat-icon>description</mat-icon>
+            <span class="doc-name">{{file}}</span>
+        </div>
+
 </div>

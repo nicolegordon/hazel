@@ -1,4 +1,104 @@
 .container {
     width: 100%;
     height: 100%;
+    background-color: #ecf9ec;
+}
+
+.header {
+    text-align: left;
+    font-size: 20px;
+    padding: 15px;
+    display: flex;
+}
+
+.file-name {
+  flex: 1;
+}
+
+.save-btn-container {
+  width: 100px;
+}
+
+.save-btn {
+  width: 100px;
+}
+
+.documents-viewer {
+  display: flex;
+  height: 100%;
+}
+
+.editor {
+  height: 85%;
+  width: 100%;
+}
+
+.textarea {
+    width: 100%;
+  }
+
+.pdf-viewer {
+  background-color: #f2f2f2;
+  flex: 1;
+  height: 100%;
+}
+
+.tools {
+  background-color: #d8f3d8;
+  width: 300px;
+  height: 100%;
+  padding-left: 15px;
+}
+
+.find {
+  width: 90%;
+  padding: 5px;
+}
+
+.replace {
+  margin-top: -20px;
+  width: 90%;
+  padding: 5px;
+}
+
+.nav-arrows {
+  padding-left: 5px;
+  margin-top: -10px;
+  display: flex;
+}
+
+.find-results {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.replace-btns {
+  padding: 5px;
+}
+
+.replace-btn {
+  font-size: 14px;
+}
+
+.replace-all-btn {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.history-header {
+  text-align: left;
+  font-size: 20px;
+  padding: 15px;
+  width: 100%;
+  background-color: #ecf9ec;
+}
+
+.document {
+  outline: 1px solid #003300;
+  height: 50px;
+  padding-top: 12px;
+  padding-left: 15px;
+  background-color: #d8f3d8;
+  width: 100%;
+  font-size: 16px;
 }

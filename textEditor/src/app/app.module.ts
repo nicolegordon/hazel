@@ -8,6 +8,7 @@ import { UploadComponent } from './upload/upload.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     UploadComponent,
     DocumentsComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

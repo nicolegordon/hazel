@@ -1,3 +1,58 @@
 <div class="container">
-    pdf viewer
+    <div class="header">
+        <div class="file-name">{{this.currentFile.name}}</div>
+        <div class="save-btn-container">
+            <button 
+                mat-raised-button 
+                class="save-btn" 
+                (click)="this.fileService.saveChanges(this.currentFile)">
+                Save
+            </button>
+        </div>
+    </div>
+    <div class="documents-viewer">
+        <div class="pdf-viewer">
+            <form [formGroup]="textForm">
+                <mat-form-field appearance="outline" class="editor">
+                    <textarea matInput #textArea class="textarea" rows="28" formControlName="text"></textarea>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="tools">
+            <div claass="find-replace">
+                <form [formGroup]="findReplaceForm">
+                    <mat-form-field class="find">
+                        <input matInput placeholder="Find" class="findinput" formControlName="find">
+                    </mat-form-field>
+                    <mat-form-field class="replace">
+                        <input matInput placeholder="Replace" formControlName="replace">
+                    </mat-form-field>
+                </form>
+                <div class="nav-arrows">
+                    <button (click)="previousResult()">
+                        <mat-icon>arrow_upward</mat-icon>
+                    </button>
+                    <button (click)="nextResult()">
+                        <mat-icon>arrow_downward</mat-icon>
+                    </button>
+                    <div class="find-results">{{this.currentFindResult}} of {{this.totalFindResults}}</div>
+                </div>
+                <div class="replace-btns"> 
+                    <button class="replace-btn" (click)="replaceResult()">
+                        Replace
+                    </button>
+                    <button class="replace-all-btn" (click)="replaceAllResults()">
+                        Replace all
+                    </button>
+                </div>
+            </div>
+            <div class="history">
+                <div class="history-header">History</div>
+                <div *ngFor="let file of fileService.versions" class="document" (click)="fileService.openVersion(file.datetime)">
+                    <mat-icon>description</mat-icon>
+                    <span class="doc-date">{{file.datetime}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
