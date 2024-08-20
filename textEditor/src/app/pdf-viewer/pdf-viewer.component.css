@@ -16,11 +16,20 @@
 }
 
 .save-btn-container {
-  width: 100px;
+  width: 125px;
 }
 
 .save-btn {
-  width: 100px;
+  width: 125px;
+}
+
+.download-btn-container {
+  margin-left: 20px;
+  width: 125px;
+}
+
+.download-btn {
+  width: 125px;
 }
 
 .documents-viewer {

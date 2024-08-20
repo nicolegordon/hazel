@@ -8,6 +8,13 @@ import { debounceTime } from 'rxjs/operators';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import jsPDF from 'jspdf';
+declare global {
+  interface Window {
+    onePageCanvas:any;
+  }
+}
+
 @Component({
   selector: 'app-pdf-viewer',
   templateUrl: './pdf-viewer.component.html',
@@ -19,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class PdfViewerComponent {
   constructor (public fileService: FileService) {}
   @ViewChild('textArea') _textArea: ElementRef | null = null;
+  @ViewChild('content') _content: ElementRef | null = null;
 
   private unsub: Subject<void> = new Subject();
   public currentFile: any = {name: '', text: ''};
@@ -164,6 +172,23 @@ export class PdfViewerComponent {
 
   private doFindResultsExist(): boolean {
     return this.resultIndices.length > 0;
+  }
+
+  public downloadAsPDF() {
+    let doc = new jsPDF('p', 'pt', 'letter');
+    doc.setFontSize(12);
+
+    const textArea: HTMLInputElement = (<HTMLInputElement>document.getElementById('textarea'));
+    const textAreaList: string[] = textArea.value.split('\n');
+    const linesPerPage: number = 50;
+    for (let i = 0; i < textAreaList.length; i+=linesPerPage) {
+      if (i !== 0) {
+        doc.addPage('letter', 'p');
+      };
+      const sublist = textAreaList.slice(i, i+linesPerPage).join('\n');
+      doc.text(sublist, 50, 50);
+    }
+    doc.save(this.currentFile.name);
   }
 }
 

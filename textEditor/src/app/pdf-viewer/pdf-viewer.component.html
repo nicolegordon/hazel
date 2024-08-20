@@ -6,18 +6,27 @@
                 mat-raised-button 
                 class="save-btn" 
                 (click)="this.fileService.saveChanges(this.currentFile)">
-                Save
+                Save Changes
+            </button>
+        </div>
+        <div class="download-btn-container">
+            <button 
+                mat-raised-button 
+                class="download-btn" 
+                (click)="this.downloadAsPDF()">
+                Download PDF
             </button>
         </div>
     </div>
     <div class="documents-viewer">
-        <div class="pdf-viewer">
+        <div class="pdf-viewer" #content >
             <form [formGroup]="textForm">
                 <mat-form-field appearance="outline" class="editor">
                     <textarea 
                         matInput 
                         #textArea 
                         class="textarea" 
+                        id="textarea"
                         rows="28" 
                         formControlName="text">
                     </textarea>
