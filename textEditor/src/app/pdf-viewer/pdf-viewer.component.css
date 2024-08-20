@@ -56,7 +56,11 @@
   background-color: #d8f3d8;
   width: 300px;
   height: 100%;
-  padding-left: 15px;
+  /* padding-left: 15px; */
+}
+
+.find-replace {
+  margin-left: 15px;
 }
 
 .find {
