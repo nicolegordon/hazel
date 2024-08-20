@@ -24,12 +24,12 @@ export class PdfViewerComponent {
   public currentFile: any = {name: '', text: ''};
 
   public textForm: FormGroup = new FormGroup({
-    text: new FormControl('')
+    text: new FormControl({value: '', disabled: true})
   })
 
   public findReplaceForm: FormGroup = new FormGroup({
-    find: new FormControl(''),
-    replace: new FormControl('')
+    find: new FormControl({value: '', disabled: true}),
+    replace: new FormControl({value: '', disabled: true})
   })
   public totalFindResults: number = 0;
   public currentFindResult: number = 0;
@@ -42,6 +42,11 @@ export class PdfViewerComponent {
       .subscribe((currentFile: any) => {
       this.currentFile = currentFile;
       this.textForm.get('text')?.setValue(this.currentFile.text);
+      if (this.currentFile.name != '') {
+        this.textForm.get('text')?.enable();
+        this.findReplaceForm.get('find')?.enable();
+        this.findReplaceForm.get('replace')?.enable();
+      }
       this.findResults();
       this.setCurrentFindResult(0);
     });
@@ -125,7 +130,7 @@ export class PdfViewerComponent {
   }
 
   public replaceResult(): void {
-    if (this.isFindEmpty()) {
+    if (this.isFindEmpty() || !this.doFindResultsExist()) {
       return
     }
     const rangeStart: number = this.resultIndices[this.currentFindResult-1];
@@ -155,6 +160,10 @@ export class PdfViewerComponent {
 
   private isFindEmpty(): boolean {
     return this.findReplaceForm.get('find')?.value == null || this.findReplaceForm.get('find')?.value == '';
+  }
+
+  private doFindResultsExist(): boolean {
+    return this.resultIndices.length > 0;
   }
 }
 

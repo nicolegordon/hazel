@@ -14,12 +14,18 @@
         <div class="pdf-viewer">
             <form [formGroup]="textForm">
                 <mat-form-field appearance="outline" class="editor">
-                    <textarea matInput #textArea class="textarea" rows="28" formControlName="text"></textarea>
+                    <textarea 
+                        matInput 
+                        #textArea 
+                        class="textarea" 
+                        rows="28" 
+                        formControlName="text">
+                    </textarea>
                 </mat-form-field>
             </form>
         </div>
         <div class="tools">
-            <div claass="find-replace">
+            <div class="find-replace">
                 <form [formGroup]="findReplaceForm">
                     <mat-form-field class="find">
                         <input matInput placeholder="Find" class="findinput" formControlName="find">
