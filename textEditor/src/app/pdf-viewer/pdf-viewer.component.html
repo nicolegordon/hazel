@@ -5,6 +5,7 @@
             <button 
                 mat-raised-button 
                 class="save-btn" 
+                [disabled]="this.currentFile.name == ''"
                 (click)="this.fileService.saveChanges(this.currentFile)">
                 Save Changes
             </button>
@@ -13,6 +14,7 @@
             <button 
                 mat-raised-button 
                 class="download-btn" 
+                [disabled]="this.currentFile.name == ''"
                 (click)="this.downloadAsPDF()">
                 Download PDF
             </button>
@@ -44,19 +46,25 @@
                     </mat-form-field>
                 </form>
                 <div class="nav-arrows">
-                    <button (click)="previousResult()">
+                    <button [disabled]="this.currentFile.name == ''" (click)="previousResult()">
                         <mat-icon>arrow_upward</mat-icon>
                     </button>
-                    <button (click)="nextResult()">
+                    <button [disabled]="this.currentFile.name == ''" (click)="nextResult()">
                         <mat-icon>arrow_downward</mat-icon>
                     </button>
                     <div class="find-results">{{this.currentFindResult}} of {{this.totalFindResults}}</div>
                 </div>
                 <div class="replace-btns"> 
-                    <button class="replace-btn" (click)="replaceResult()">
+                    <button 
+                        class="replace-btn" 
+                        [disabled]="this.currentFile.name == ''" 
+                        (click)="replaceResult()">
                         Replace
                     </button>
-                    <button class="replace-all-btn" (click)="replaceAllResults()">
+                    <button 
+                        class="replace-all-btn" 
+                        [disabled]="this.currentFile.name == ''"
+                        (click)="replaceAllResults()">
                         Replace all
                     </button>
                 </div>

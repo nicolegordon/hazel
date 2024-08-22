@@ -10,7 +10,9 @@ export class AppComponent {
   constructor(public fileService: FileService) {}
   title = 'textEditor';
   ngOnInit() {
+    // Get files to display in documents pane
     this.fileService.getFiles();
+    // Get file that was last open
     this.fileService.getRecentFile();
   }
 }

@@ -47,6 +47,7 @@ export class FileService {
       .pipe(
         takeUntil(this.unsub))
         .subscribe((files: any) => {
+        // Get and set files for documents pane
         this.files = files;
       });
   }
@@ -56,6 +57,7 @@ export class FileService {
       .pipe(
         takeUntil(this.unsub))
         .subscribe((file: any) => {
+          // Get and set current file based on file that was most recently open
           if (file != null) {
             this.currentFileSrc.next(file);
             this.getVersions(file.name);
@@ -68,6 +70,7 @@ export class FileService {
       .pipe(
         takeUntil(this.unsub))
         .subscribe((currentFile: any) => {
+          // Get and set current file when clicked on from documents pane
           this.currentFileSrc.next(currentFile);
           if (currentFile.name != "") {
             this.getVersions(currentFile.name);
@@ -80,6 +83,7 @@ export class FileService {
     .pipe(
       takeUntil(this.unsub))
       .subscribe((res: any) => {
+        // Save changes to document made in text editor
         if (file.name != "") {
           this.getVersions(file.name);
         }
@@ -91,6 +95,7 @@ export class FileService {
       .pipe(
         takeUntil(this.unsub))
         .subscribe((versions: any) => {
+          // Get and set files for documents pane
           this.versions = versions;
       });
   }
@@ -101,6 +106,7 @@ export class FileService {
       .pipe(
         takeUntil(this.unsub))
         .subscribe((file: any) => {
+          // Get and set current file when clicked on from history pane
           if (file != null) {
             this.currentFileSrc.next(file);
           }

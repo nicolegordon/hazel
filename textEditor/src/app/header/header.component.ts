@@ -16,5 +16,5 @@ import { DocumentsComponent } from "../documents/documents.component";
     RouterModule, UploadComponent, DocumentsComponent],
 })
 export class HeaderComponent {
-  public title: string = 'Text Editor';
+  public title: string = 'Document Editor';
 }
